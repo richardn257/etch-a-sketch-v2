@@ -1,0 +1,28 @@
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.title {
+  align-self: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rowOfSquares {
+  display: flex;
+  justify-content: center;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+}
