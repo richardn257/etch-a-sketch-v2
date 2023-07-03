@@ -14,10 +14,10 @@ gridButton.addEventListener('click', () => {
   createGrid(userInput);
 });
 
-function createGrid(squares) {
+function createGrid(numSquares) {
   const container = document.querySelector('.container');
 
-  for (let i = 0; i < squares; i++) {
+  for (let i = 0; i < numSquares; i++) {
     const row = document.createElement('div');
     row.classList.add('rowOfSquares');
     container.appendChild(row);
@@ -25,12 +25,21 @@ function createGrid(squares) {
 
   const rows = document.querySelectorAll('.rowOfSquares');
   rows.forEach(row => {
-    for (let i = 0; i < squares; i++) {
+    for (let i = 0; i < numSquares; i++) {
       const square = document.createElement('div');
       square.classList.add('square');
       square.addEventListener('mouseover', () => {
-        square.classList.add('color-trail')
-      });
+        // black and white
+        // square.classList.add('color-trail')
+
+        // random rgb
+        const randomBetween = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+        const r = randomBetween(0, 255);
+        const g = randomBetween(0, 255);
+        const b = randomBetween(0, 255);
+        const rgb = `rgb(${r},${g},${b})`;
+        square.setAttribute('style', `background-color: ${rgb}`)
+      }, {once: true});
       row.appendChild(square);
     }
   });
