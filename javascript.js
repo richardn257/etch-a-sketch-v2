@@ -4,7 +4,14 @@ gridButton.addEventListener('click', () => {
   while (userInput > 100) {
     userInput = prompt('The maximum is 100. Enter again')
   }
-
+  const container = document.querySelector('.container');
+  
+  if (userInput === null)
+    return;
+  while (container.firstChild) {
+    container.removeChild(container.lastChild)
+  }
+  createGrid(userInput);
 });
 
 function createGrid(squares) {
